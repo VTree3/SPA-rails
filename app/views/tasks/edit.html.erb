@@ -1,0 +1,15 @@
+<div>
+  <h1 class="font-bold text-2xl mb-3">Editing Task</h1>
+
+  <turbo-frame id="<%= dom_id @task %>">
+    <%= render "form", task: @task %>
+    <%= link_to "Never Mind", tasks_path, class: "btn mb-3 bg-gray-100" %>
+    <div class="inline-block ml-2">
+    <%= button_to "Delete", task_path(@task),
+                  method: :delete,
+                  class: "btn bg-red-100",
+                  data: {turbo_confirm: "Are you sure you want to delete this?", turbo_frame: "_top"} %>
+    </div>
+  </turbo-frame>
+  
+</div>
