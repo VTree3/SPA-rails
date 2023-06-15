@@ -10,7 +10,7 @@ class TasksController < ApplicationController
         format.html { redirect_to tasks_url, notice: "Task was successfully created" }
       else
         flash[:error] = @task.errors.full_messages
-        redirect_to tasks_url
+        format.html { redirect_to tasks_url, notice: "Task was not created due to error(s)" }
       end
     end
   end   

@@ -1,6 +1,10 @@
 <% if flash[:error] %>
-  <div class="alert alert-danger">
-    <%= flash[:error] %>
+  <div class="py-2 px-3 bg-green-50 mb-5 text-red-500 font-medium rounded-lg block w-75" id="notice">
+    <ul>
+      <% flash[:error].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
 <% if notice.present? %>
@@ -17,4 +21,8 @@
   <%= render @tasks %>
 </div>
 
+
+<turbo-frame id = "Yessir" class = "block w-75 py-2 px-3">
+  <%= link_to "Simpler method for Turbo Frames.", tasks_trying_path, class: "text-lg"%>
+</turbo-frame>
 </div>
