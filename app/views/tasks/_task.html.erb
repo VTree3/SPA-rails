@@ -1,4 +1,4 @@
-<turbo-frame id="<%= dom_id task %>" class="block">
+<turbo-frame id="<%= dom_id task %>" class="block tasks-frame">
   <%= form_with(model: task, class:"text-lg inline-block my-3 w-100") do |form| %>
     <%= form.check_box :completed,
                        data: {

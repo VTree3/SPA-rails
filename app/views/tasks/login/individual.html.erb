@@ -1,0 +1,16 @@
+<turbo-frame id = "Login_Page" class = "block">
+<p class = "font-bold text-lg">Login</p>
+    <div class="block">
+        <div class="block w-80">
+            <%= label_tag :username, "Username:" %>
+            <%= text_field_tag :username, nil, class: "w-full px-3 py-2 mt-2 shadow rounded-md border border-gray-200 outline-none" %>
+        </div>
+        <div class="w-80 block">
+            <%= label_tag :password, "Password:" %>
+            <%= text_field_tag :password, nil, type: :password, class: "w-full px-3 py-2 mt-2 shadow rounded-md border border-gray-200 outline-none" %>
+        </div>
+    </div>
+<%= link_to "Back", tasks_login_path, class: "text-lg btn mt-5 bg-gray-100"%>
+<%= link_to "Submit", tasks_login_path, class: "text-lg btn mt-5 bg-lime-500"%>
+
+</turbo-frame>

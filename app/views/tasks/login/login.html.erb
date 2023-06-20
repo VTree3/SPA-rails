@@ -1,0 +1,16 @@
+<turbo-frame id="Login_Page" data-controller="navigate">
+    <div class = "bg-gray-50">
+        <h1 class="text-lg font-bold">
+            Login
+        </h1>
+        <p class = "text-lg">
+        What are you?
+        </p>
+        <ul>
+        <%= link_to "Login as an Individual", tasks_login_individual_path, class: "text-lg btn bg-fuchsia-200"%>
+        <ul>
+        <%= link_to "Login as a Company", tasks_login_company_path, class: "text-lg btn bg-teal-200"%>
+        <ul>
+        <%= link_to "Back", tasks_path, class: "text-lg btn mt-5 bg-gray-100"%>
+    </div>
+</turbo-frame>

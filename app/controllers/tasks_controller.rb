@@ -1,7 +1,28 @@
 class TasksController < ApplicationController
+  def login
+    render "tasks/login/login"
+  end
+  def individual_login
+    render "tasks/login/individual"
+  end
+  def company_login
+    render "tasks/login/company"
+  end
   def index
     @tasks = Task.all
     @task = Task.new
+    #search function
+    if params[:query].present?
+      @tasks = Task.where("description like ?", "%#{params[:query]}%")
+    else
+      @tasks = Task.all
+    end
+    if turbo_frame_request?
+      render partial: "task", locals: { task: @task }
+    else
+      render "index"
+    end
+    #end search function
   end
   def create
     @task = Task.new(task_params)

@@ -19,8 +19,16 @@
     width: 25%;
  }
 
- turbo-frame {
+ /* turbo-frame {
     border: 1px solid lightblue;
+    border-radius: 5px;
+    padding: 0.1em 1em;
+    margin: 1em 0;
+  } */
+
+  .tasks-frame
+  {
+   border: 1px solid lightblue;
     border-radius: 5px;
     padding: 0.1em 1em;
     margin: 1em 0;
