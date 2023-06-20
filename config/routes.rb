@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "tasks#index"
   post "tasks/:id/toggle", to: "tasks#toggle"
   get "tasks/trying", to: "tasks#trying"
+  get "page2", to: "pages#body_2_index"
   get "tasks/login", to: "tasks#login"
   get "tasks/login/individual", to: "tasks#individual_login"
   get "tasks/login/company", to: "tasks#company_login"
