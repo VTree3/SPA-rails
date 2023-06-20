@@ -17,11 +17,6 @@ class TasksController < ApplicationController
     else
       @tasks = Task.all
     end
-    if turbo_frame_request?
-      render partial: "task", locals: { task: @task }
-    else
-      render "index"
-    end
     #end search function
   end
   def create
