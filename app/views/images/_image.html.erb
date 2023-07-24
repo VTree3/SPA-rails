@@ -1,0 +1,11 @@
+<div class = "rounded overflow-hidden shadow-lg flex flex-column text-center items-center justify-center">
+    <div id="<%= dom_id image %>" class="text-center">
+      <% if action_name != "show" %>
+        <%= image_tag image.image, class: 'rounded-lg object-cover w-full h-48' %>
+        <%= link_to "Show this image", image, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        <%= link_to 'Edit this image', edit_image_path(image), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+        <%= button_to 'Delete this image', image_path(image), method: :delete, class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+        <hr class="mt-6">
+      <% end %>
+    </div>
+</div>

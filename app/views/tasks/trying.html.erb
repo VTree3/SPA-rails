@@ -1,4 +1,5 @@
-<turbo-frame id= "Yessir" class = "text-lg block">
-  <p class = "text-lg">  ...It'll render the html that it's going to, replacing it without reloading. </p>
+<%= turbo_frame_tag "Yessir" do%>  
+<p class = "text-lg">  ...It'll render the html that it's going to, replacing it without reloading. </p>
     <%= link_to "Try again!", tasks_path, class: "btn bg-gray-200 inline-block "%>
-</turbo-frame>
+<%end%>
+EEEEEEEEEEE

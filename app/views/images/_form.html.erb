@@ -1,0 +1,34 @@
+<div class = "text-center mt-5">
+  <%= form_with(model: image, class: "contents") do |form| %>
+    <h5>
+      <%= form.label :title, class: "font-bold text-lg" %> <br>
+      <%= form.text_field :title, class: 'w-80 px-3 py-2 mt-2 shadow rounded-md border border-gray-200 outline-none' %>
+    </h5>
+    <h5>
+      <%= form.label :description, class: "font-bold text-lg" %>
+      <br>
+ <%= form.text_area :description, class:
+    'w-80 px-3 py-2 mt-2 shadow rounded-md border border-gray-200 outline-none' %>
+    </h5>
+    <h5><%= form.label :image, class: "font-bold text-lg" %></h5>
+    <p>
+      <%= form.file_field :image, accept: 'image/png,image/gif, image/jpeg,
+    image/webp', class: 'w-80 px-3 py-2 mt-2 shadow rounded-md border border-gray-200 outline-none mb-5 text-center' %>
+    </p>
+    <% if image.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2>
+          <%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:
+        </h2>
+        <ul>
+          <% image.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="inline">
+      <%= form.submit class: "rounded-lg py-2 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    </div>
+  <% end %>
+</div>

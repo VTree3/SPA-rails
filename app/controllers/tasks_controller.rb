@@ -8,6 +8,9 @@ class TasksController < ApplicationController
   def company_login
     render "tasks/login/company"
   end
+  def trying
+    render "tasks/trying"
+  end
   def index
     @tasks = Task.all
     @task = Task.new
@@ -59,4 +62,4 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:description, :completed)
     end
-end  
+end

@@ -1,50 +1,45 @@
-<% if flash[:error] %>
-  <div class="py-2 px-3 bg-green-50 mb-5 text-red-500 font-medium rounded-lg block w-75" id="notice">
-    <ul>
-      <% flash[:error].each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<% if notice.present? %>
-  <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice">
-    <%= notice %>
-  </p>
-<% end %>
-
-<%= link_to "Task Manager", tasks_path, class: "font-bold text-2xl"%>
-
-
-<turbo-frame id = "body-2">
-<br>
-<%= link_to "Go to A *Brand New Page!*", page2_path, class: "text-lg btn bg-lime-500"%>
+<div class = "content" id = "content">
+  <% if flash[:error] %>
+    <div class="py-2 px-3 bg-green-50 mb-5 text-red-500 font-medium rounded-lg block w-75" id="notice">
+      <ul>
+        <% flash[:error].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice">
+      <%= notice %>
+    </p>
+  <% end %>
   <br>
-
-  <turbo-frame id = "Login_Page">
-    <%= link_to "Login", tasks_login_path, class: "text-lg btn bg-lime-200"%>
-  </turbo-frame>
-
-  <p style="color: green"><%= notice %></p>
-
-  <h1 class = "my-8 font-bold text-xl">Search</h1>
+  <%= button_to "Go to A *Brand New Page!*",images_path, class: "text-lg btn bg-lime-500"%>
+  <turbo-frame id="body-2">
+    <br>
+    <turbo-frame id = "Login_Page">
+      <%= link_to "Login", tasks_login_path, class: "text-lg btn bg-lime-200"%>
+    </turbo-frame>
+    <p style="color: green"><%= notice %></p>
+    <h1 class = "my-8 font-bold text-xl">Search</h1>
     <%= form_with(url: tasks_path, method: "GET", data: {turbo_frame: "task", turbo_action: "advance", controller: "clear_controller", action: "turbo:submit-end->clear#clear"} ) do |form| %>
       <%= form.text_field :query, placeholder: "Search", class: "w-80 px-3 py-2 mt-2 shadow rounded-md border border-gray-200 outline-none", data: {target: "clear.focus"} %>
       <%= form.submit 'Search', description: nil, class: "text-lg btn bg-teal-200", data: {action: "click->clear#submit"}%>
     <% end %>
-  <div class="my-8">
-    <%= render "form", task: @task %>
-  </div>
-
-  <div class="px-5" data-controller="tasks">
-
-  <div class="block mb-2" >
-    <%= render @tasks %>
-  </div>
-
-  <turbo-frame id = "Yessir" class = "block w-75 py-2 px-3 tasks-frame">
-    <%= link_to "Simpler method for Turbo Frames.", tasks_trying_path, data:{turbo_frame: "Yessir"}, class: "text-lg"%>
+    <div class="my-8">
+      <%= render "form", task: @task %>
+    </div>
+    <div class="px-5" data-controller="tasks">
+      <div class="block mb-2" >
+        <%= render @tasks %>
+      </div>
+      <%= link_to "Simpler method for Turbo Frames.", tasks_trying_path, data:{turbo_frame: "Yessir"}, class: "text-lg block w-75 py-2 px-3 tasks-frame"%>
+      <%= turbo_frame_tag "Yessir" do %>
+        <div class = "text-lg" id= "content">
+          Click on the above! or go here:
+        </div>
+      <%end%>
+    </div>
+    <%= link_to "Manual Go to the page!", tasks_trying_path, class: "btn bg-grey-300", data: {"turbo-frame": "_top"}%>
   </turbo-frame>
-  </div>
-</turbo-frame>
+</div>
